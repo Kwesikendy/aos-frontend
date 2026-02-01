@@ -75,7 +75,7 @@ export const SettingsProvider = ({ children }) => {
     // Helper to darken/lighten hex slightly
     const adjustBrightness = (col, amt) => {
         var usePound = false;
-        if (col[0] == "#") {
+        if (col[0] === "#") {
             col = col.slice(1);
             usePound = true;
         }
@@ -99,6 +99,7 @@ export const SettingsProvider = ({ children }) => {
         } else {
             setLoading(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
