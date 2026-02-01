@@ -39,6 +39,7 @@ import ClassCreate from './components/ClassCreate';
 
 // UI Components
 import SpectacularHomePage from './components/SpectacularHomePage';
+import AboutSchool from './components/AboutSchool';
 
 const AppContent = () => {
   const { user, getMe } = useAuth();
@@ -60,6 +61,7 @@ const AppContent = () => {
       {!isHomePage && !isAuthPage && <Breadcrumb />}
       <Routes>
         {/* Public Routes */}
+        <Route path="/about" element={<AboutSchool />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/courses" element={<CourseList />} />
