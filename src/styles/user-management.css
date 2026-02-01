@@ -1,0 +1,82 @@
+/* ======================================
+   User Management Section
+   ====================================== */
+.header-actions {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+.user-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+}
+
+.user-type-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition-base);
+}
+
+.user-type-card:hover {
+    background: white;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.user-type-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--primary-200);
+}
+
+.user-type-info {
+    flex: 1;
+}
+
+.user-type-info h4 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--gray-900);
+    margin: 0 0 var(--space-1) 0;
+}
+
+.user-type-info .count {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--primary-600);
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--primary-600);
+    font-weight: var(--font-medium);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.btn-text:hover {
+    background: var(--primary-50);
+    color: var(--primary-700);
+    text-decoration: none;
+}
