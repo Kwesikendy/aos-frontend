@@ -335,7 +335,7 @@ const SpectacularHomePage = () => {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 100 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="relative h-96 lg:h-[600px]"
+              className="relative h-[500px] sm:h-96 lg:h-[600px]"
             >
               <div className="relative w-full h-full">
                 {/* Central Feature Card */}
@@ -346,12 +346,12 @@ const SpectacularHomePage = () => {
                       animate={{ opacity: 1, rotateY: 0, scale: 1 }}
                       exit={{ opacity: 0, rotateY: -90, scale: 0.8 }}
                       transition={{ duration: 0.8 }}
-                      className={`w-full h-full ${features[currentFeature].bgColor} backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden`}
+                      className={`w-full h-full ${features[currentFeature].bgColor} backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-center items-center text-center`}
                     >
                       {/* Background particles for current feature */}
                       <FloatingParticles count={features[currentFeature].particles} color="bg-white" />
 
-                      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center">
+                      <div className="relative z-10 w-full">
                         <motion.div
                           animate={{
                             rotate: 360,
@@ -361,13 +361,13 @@ const SpectacularHomePage = () => {
                             rotate: { duration: 20, repeat: Infinity, ease: "linear" },
                             scale: { duration: 2, repeat: Infinity }
                           }}
-                          className={`w-24 h-24 bg-gradient-to-r ${features[currentFeature].color} rounded-2xl flex items-center justify-center mb-8 shadow-2xl`}
+                          className={`w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r ${features[currentFeature].color} rounded-2xl flex items-center justify-center mb-6 sm:mb-8 shadow-2xl mx-auto`}
                         >
-                          {React.createElement(features[currentFeature].icon, { className: "w-12 h-12 text-white" })}
+                          {React.createElement(features[currentFeature].icon, { className: "w-10 h-10 sm:w-12 sm:h-12 text-white" })}
                         </motion.div>
 
                         <motion.h3
-                          className="text-3xl font-bold text-gray-800 mb-4"
+                          className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-4 px-2"
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.2 }}
@@ -376,7 +376,7 @@ const SpectacularHomePage = () => {
                         </motion.h3>
 
                         <motion.p
-                          className="text-lg text-gray-600"
+                          className="text-base sm:text-lg text-gray-600 px-2 sm:px-4"
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.4 }}
@@ -391,42 +391,57 @@ const SpectacularHomePage = () => {
                   </Card3D>
                 </AnimatePresence>
 
-                {/* Orbiting Feature Icons */}
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    className="absolute w-16 h-16 cursor-pointer"
-                    style={{
-                      top: `${50 + 35 * Math.cos((index * Math.PI * 2) / features.length)}%`,
-                      left: `${50 + 35 * Math.sin((index * Math.PI * 2) / features.length)}%`,
-                      transform: 'translate(-50%, -50%)'
-                    }}
-                    animate={{
-                      rotate: 360,
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                    onClick={() => setCurrentFeature(index)}
-                  >
+                {/* Orbiting Feature Icons - Hidden on mobile to prevent overlap */}
+                <div className="hidden md:block">
+                  {features.map((feature, index) => (
                     <motion.div
+                      key={index}
+                      className="absolute w-16 h-16 cursor-pointer"
+                      style={{
+                        top: `${50 + 35 * Math.cos((index * Math.PI * 2) / features.length)}%`,
+                        left: `${50 + 35 * Math.sin((index * Math.PI * 2) / features.length)}%`,
+                        transform: 'translate(-50%, -50%)'
+                      }}
                       animate={{
-                        rotate: -360,
-                        scale: index === currentFeature ? 1.2 : 1,
+                        rotate: 360,
                       }}
                       transition={{
-                        rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                        scale: { duration: 0.3 }
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear"
                       }}
-                      className={`w-full h-full bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-shadow ${index === currentFeature ? 'ring-4 ring-white/50' : ''
-                        }`}
+                      onClick={() => setCurrentFeature(index)}
                     >
-                      {React.createElement(feature.icon, { className: "w-8 h-8 text-white" })}
+                      <motion.div
+                        animate={{
+                          rotate: -360,
+                          scale: index === currentFeature ? 1.2 : 1,
+                        }}
+                        transition={{
+                          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                          scale: { duration: 0.3 }
+                        }}
+                        className={`w-full h-full bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-shadow ${index === currentFeature ? 'ring-4 ring-white/50' : ''
+                          }`}
+                      >
+                        {React.createElement(feature.icon, { className: "w-8 h-8 text-white" })}
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-                ))}
+                  ))}
+                </div>
+
+                {/* Mobile Feature Navigation Dots */}
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 md:hidden z-20">
+                  {features.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentFeature(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentFeature ? 'bg-emerald-600 w-6' : 'bg-emerald-200'
+                        }`}
+                      aria-label={`View feature ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
