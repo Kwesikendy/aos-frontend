@@ -232,7 +232,7 @@ const SpectacularHomePage = () => {
 
               {/* Main Heading */}
               <motion.h1
-                className="text-6xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-white via-emerald-100 to-teal-100 bg-clip-text text-transparent leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-white via-emerald-100 to-teal-100 bg-clip-text text-transparent leading-tight"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
@@ -253,7 +253,7 @@ const SpectacularHomePage = () => {
               </motion.h1>
 
               <motion.p
-                className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-2xl leading-relaxed"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-2xl leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.6 }}
@@ -274,7 +274,7 @@ const SpectacularHomePage = () => {
                       <Link to="/register" className="group relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
                         <motion.button
-                          className="relative bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl transform-gpu group-hover:scale-105 transition-all duration-300"
+                          className="relative bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg shadow-2xl transform-gpu group-hover:scale-105 transition-all duration-300 w-full sm:w-auto"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >
@@ -295,7 +295,7 @@ const SpectacularHomePage = () => {
                     <Card3D>
                       <Link to="/about" className="group">
                         <motion.button
-                          className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/20 transition-all duration-300 transform-gpu group-hover:scale-105"
+                          className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-base sm:text-lg hover:bg-white/20 transition-all duration-300 transform-gpu group-hover:scale-105 w-full sm:w-auto"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >

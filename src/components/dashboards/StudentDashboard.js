@@ -121,7 +121,7 @@ const StudentDashboard = () => {
           className="py-8"
           variants={itemVariants}
         >
-          <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+          <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
             {/* Decorative Circles */}
             <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-white/10 rounded-full blur-3xl opacity-50"></div>
             <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-teal-500/30 rounded-full blur-2xl"></div>
@@ -137,10 +137,10 @@ const StudentDashboard = () => {
                   <Award className="w-4 h-4 text-yellow-300" />
                   <span>Student Portal</span>
                 </motion.div>
-                <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 tracking-tight">
                   Hello, {user.firstName}! 👋
                 </h1>
-                <p className="text-emerald-50 text-lg max-w-2xl leading-relaxed">
+                <p className="text-emerald-50 text-base sm:text-lg max-w-2xl leading-relaxed">
                   Welcome to your dashboard. You have <span className="font-bold text-white">{stats.pendingAssignmentsCount} assignments</span> due soon and <span className="font-bold text-white">{upcomingClasses[0]?.course?.title || 'No upcoming classes'}</span> is your next class.
                 </p>
               </div>

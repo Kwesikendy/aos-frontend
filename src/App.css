@@ -1,6 +1,9 @@
 /* Import Google Fonts - Enhanced for Education */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
+/* Import Responsive Utilities */
+@import './styles/responsive-utilities.css';
+
 /* ======================================
    🎓 AcademyOS Educational Design System
    Modern, animated, and engaging UI for learning
